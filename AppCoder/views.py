@@ -4,26 +4,19 @@ from django.http import HttpResponse
 
 # Create your views here. 
 
-def curso(self):
 
-    curso = Curso(nombre='Desarrollo Web', camada= 12345)
-    curso.save()
-
-    documentoDeTexto = f'---> Curso: {curso.nombre} ---> Camada : {curso.camada}'
-
-    return HttpResponse(documentoDeTexto)
 
 def inicio (request):
-    return HttpResponse('Estamos en el Inicio')
+    return render (request, "inicio.html")
 
 def cursos (request):
-    return HttpResponse('Estamos en el cursos')
+    return render (request, "cursos.html")
 
 def profesores (request):
-    return HttpResponse('Estamos en el profesores')
+    return render (request, "profesores.html")
 
 def estudiantes (request):
-    return HttpResponse('Estamos en el estudiantes')
+    return render (request, "estudiantes.html")
 
 def entregables (request):
-    return HttpResponse('Estamos en el entregables')
+    return render (request, "entregables.html")
