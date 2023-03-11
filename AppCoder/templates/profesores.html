@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profesores</title>
-</head>
-    <body style="background: lightcoral;">
-    </body>
-</html>
+{% extends 'padre.html'%}
+
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+<!-- Colocamos lo que va a cambiar -->
+<h1>Profesores</h1>
+
+{% if miFormulario.errors %}
+    <p style="color: red;" >Están mal los datos, revisar.</p>
+    {% endif %}
+    <form action="" method="POST"> {% csrf_token %}
+
+        <table>
+            {{ miFormulario.as_table }}
+        </table>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+{% endblock %}

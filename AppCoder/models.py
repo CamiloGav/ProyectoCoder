@@ -18,5 +18,5 @@ class Profesor(models.Model):
 
 class Entregable(models.Model):
     nombre = models.CharField(max_length=30)
-    fechaDeEntraga = models.DateField()
+    fecha = models.DateField()
     entregado = models.BooleanField()

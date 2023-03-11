@@ -1,0 +1,20 @@
+{% extends 'padre.html'%}
+
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <h1>Resultados de tu busqueda:  </h1>
+    <p>Estamos buscando la camada N°: {{camada}}</p>
+
+    {% if cursos %}
+    <ul>
+        {% for curso in cursos %}
+            <li>Nombre de curso:  {{curso.nombre}}</li>
+            <li>Número de camada:  {{curso.camada}}</li>
+        {% endfor %}
+    </ul>
+
+    {% endif %}
+
+{% endblock %}
