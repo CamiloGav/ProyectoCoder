@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import SelectDateWidget
 
 class CursoFormulario(forms.Form):
     nombre = forms.CharField()
@@ -17,5 +18,5 @@ class EstudianteFormulario(forms.Form):
 
 class EntregableFormulario(forms.Form):
     nombre = forms.CharField(max_length=30)
-    fecha = forms.DateField()
+    fechaEntrega = forms.DateField(widget=SelectDateWidget(empty_label='Campo-vacio'))
     entregado = forms.BooleanField()
