@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso - Detalle</title>
+    <title>AppCoder - Login</title>
 </head>
 <body>
-    <p>Nombre de Curso: <i>{{ curso.nombre }}</i></p>
-    <p>Camada: <i>{{ curso.camada }}</i></p>
-    <p>
-        <a href="{% url 'List' %}">Regresar</a>
-    </p>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        {{form.as_p}}
+
+        <button type="submit"> Iniciar Sesión</button>
+    </form>
 </body>
 </html>

@@ -88,6 +88,13 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+/*Css para la parte agregada*/
+.contenidoQueCambia {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
 hr {
   margin: 1rem 0;

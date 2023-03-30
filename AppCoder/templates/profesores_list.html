@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesores - Lista</title>
+</head>
+<body>
+    <h1>Profesores de Coder - Python</h1>
+    <ul>
+        {% for profesor in object_list %}
+        <li>
+            <p>Nombre: {{ profesor.nombre }}</p>
+            <p>
+                <a href="{% url 'DetailProfesor' profesor.id %}">Ver</a>
+                <a href="{% url 'Edit' profesor.id %}">Editar</a>
+                <a href="{% url 'Delete' profesor.id %}">Borrar</a>
+            </p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
