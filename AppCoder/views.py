@@ -8,7 +8,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
-from AppCoder.forms import UserRegisterForm, UserEditForm
+from AppCoder.forms import UserRegisterForm, UserEditForm, AvatarFormulario
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.hashers import make_password
 # Create your views here. 
@@ -171,6 +171,20 @@ def editarProfesor(request, profesor_nombre):
         miFormulario = ProfesorFormulario(initial={'nombre':profesor.nombre,'apellido':profesor.apellido,'email':profesor.email,'profesion':profesor.profesion})
 
         return render(request, "editarProfesor.html", {"miFormulario":miFormulario, "profesor_nombre":profesor_nombre})
+
+@login_required
+def agregarAvatar(request):
+    if request.method =='POST':
+        miFormulario = AvatarFormulario(request.POST, request.FILES)
+        if miFormulario.is_valid():
+            u =  User.objects.get(username=request.user)
+            avatar = Avatar(user=u, imagen=miFormulario.cleaned_data['imagen'])
+            avatar.save()
+
+            return render(request, 'inicio.html')
+    else:
+        miFormulario = AvatarFormulario()
+    return render(request, 'agregarAvatar.html', {'miFormulario':miFormulario})
 
 #Clases para "Curso"
 class CursoList(ListView):
